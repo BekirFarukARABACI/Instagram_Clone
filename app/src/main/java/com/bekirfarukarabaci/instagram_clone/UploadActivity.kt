@@ -6,30 +6,27 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.bekirfarukarabaci.instagram_clone.databinding.ActivityFeedBinding
-import com.bekirfarukarabaci.instagram_clone.databinding.ActivityMainBinding
+import com.bekirfarukarabaci.instagram_clone.databinding.ActivityUploadBinding
 
-class MainActivity : AppCompatActivity() {
+class UploadActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityUploadBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityUploadBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-
-
+        
 
     }
 
-    fun signinClick(view : View) {
+    fun upload(view : View){
 
     }
 
-    fun signupClick(view :View){
+    fun selectImage(view : View){
 
     }
 }
