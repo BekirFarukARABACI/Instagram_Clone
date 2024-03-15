@@ -35,23 +35,22 @@
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:onClick="signupClick"
         android:text="SIGN UP"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSignIn"
-        app:layout_constraintEnd_toEndOf="@+id/PasswordText"
-        app:layout_constraintTop_toTopOf="@+id/btnSignIn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
     <Button
         android:id="@+id/btnSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="56dp"
         android:onClick="signinClick"
         android:text="SIGN IN"
-        app:layout_constraintEnd_toStartOf="@+id/btnSignUp"
-        app:layout_constraintStart_toStartOf="@+id/PasswordText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PasswordText" />
 
     <androidx.constraintlayout.widget.Guideline
