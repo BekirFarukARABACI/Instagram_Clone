@@ -1,4 +1,4 @@
-package com.bekirfarukarabaci.instagram_clone
+package com.bekirfarukarabaci.instagram_clone.view
 
 import android.Manifest
 import android.content.Intent
@@ -15,8 +15,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bekirfarukarabaci.instagram_clone.databinding.ActivityUploadBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
@@ -77,7 +75,7 @@ class UploadActivity : AppCompatActivity() {
                     postMap.put("date",Timestamp.now())
 
                     firestore.collection("Posts").add(postMap).addOnSuccessListener {
-                        
+
                         finish()
 
                     }.addOnFailureListener {

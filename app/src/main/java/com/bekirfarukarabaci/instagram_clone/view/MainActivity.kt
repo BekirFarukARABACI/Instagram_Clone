@@ -1,20 +1,15 @@
-package com.bekirfarukarabaci.instagram_clone
+package com.bekirfarukarabaci.instagram_clone.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Debug
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.bekirfarukarabaci.instagram_clone.databinding.ActivityFeedBinding
 import com.bekirfarukarabaci.instagram_clone.databinding.ActivityMainBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import java.io.Console
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         if (currentUser != null){
-            val intent = Intent(this,FeedActivity::class.java)
+            val intent = Intent(this, FeedActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -47,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         if (email.isNotEmpty() && password.isNotEmpty()){
             auth.signInWithEmailAndPassword(email,password).addOnSuccessListener {
-                val intent = Intent(this,FeedActivity::class.java)
+                val intent = Intent(this, FeedActivity::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener {
@@ -64,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         if (email.isNotEmpty() && password.isNotEmpty()){
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
                 //success
-                val intent = Intent(this@MainActivity,FeedActivity::class.java)
+                val intent = Intent(this@MainActivity, FeedActivity::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener {
