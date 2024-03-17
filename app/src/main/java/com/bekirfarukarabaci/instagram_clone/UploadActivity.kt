@@ -19,6 +19,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bekirfarukarabaci.instagram_clone.databinding.ActivityUploadBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.storage
+import java.util.UUID
 
 class UploadActivity : AppCompatActivity() {
 
@@ -26,6 +34,9 @@ class UploadActivity : AppCompatActivity() {
     private lateinit var activityResultLauncher : ActivityResultLauncher<Intent>
     private lateinit var permissionLauncher : ActivityResultLauncher<String>
     var selectedPicture : Uri? = null
+    private lateinit var auth : FirebaseAuth
+    private lateinit var firestore : FirebaseFirestore
+    private lateinit var storage : FirebaseStorage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +46,30 @@ class UploadActivity : AppCompatActivity() {
         setContentView(view)
 
         registerLauncher()
+
+        auth = Firebase.auth
+        firestore = Firebase.firestore
+        storage = Firebase.storage
     }
 
     fun upload(view : View){
+
+        // Universal Unique ID
+        val uuid = UUID.randomUUID()
+        val imageName = "$uuid.jpeg"
+
+        val reference = storage.reference
+        val imageReference = reference.child("images/$imageName")
+
+
+        if (selectedPicture != null){
+            imageReference.putFile(selectedPicture!!).addOnSuccessListener {
+                // Download url -> firestore
+
+            }.addOnFailureListener {
+                Toast.makeText(this,it.localizedMessage,Toast.LENGTH_LONG).show()
+            }
+        }
 
     }
 
